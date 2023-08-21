@@ -5,7 +5,6 @@ import br.edu.fema.spring.categoria.form.CategoriaForm;
 import br.edu.fema.spring.categoria.model.Categoria;
 import br.edu.fema.spring.categoria.repository.CategoriaRepository;
 import br.edu.fema.spring.exception.handler.ObjetoNaoEncontradoException;
-import br.edu.fema.spring.produto.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -55,7 +54,7 @@ public class CategoriaService {
     @Transactional
     public Categoria buscarCategoria(Long idCategoria){
         Optional<Categoria> optionalCategoria = this.categoriaRepository.findById(idCategoria);
-        if(!optionalCategoria.isPresent()){
+        if(optionalCategoria.isEmpty()){
             throw new ObjetoNaoEncontradoException("Categoria com id " +idCategoria+" não encontrado!");
         }
         return optionalCategoria.get();

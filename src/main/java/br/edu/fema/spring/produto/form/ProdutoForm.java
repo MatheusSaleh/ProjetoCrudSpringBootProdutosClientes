@@ -1,12 +1,14 @@
 package br.edu.fema.spring.produto.form;
 
 import br.edu.fema.spring.categoria.model.Categoria;
+import lombok.Getter;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+@Getter
 public class ProdutoForm {
     @NotEmpty
     private String nome;
@@ -15,15 +17,4 @@ public class ProdutoForm {
     @NotNull
     private Categoria categoria;
 
-    public String getNome() {
-        return nome;
-    }
-
-    public Float getValor() {
-        return valor;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
 }
